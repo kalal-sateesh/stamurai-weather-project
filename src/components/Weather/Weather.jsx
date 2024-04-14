@@ -8,14 +8,12 @@ import sunrise from "../../../public/sunrise.png";
 import sunset from "../../../public/sunset.png";
 import humidity from "../../../public/humidity.png";
 import visibility from "../../../public/visibility.png";
-import styles from "../Weather/Weather.module.css";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [description, setDescription] = useState("");
   const [isError, setIsError] = useState(false);
-  
 
   const tempCel = parseInt(weatherData?.main?.temp) - 273.15;
   const tempCelFixed = tempCel.toFixed(2);
@@ -178,7 +176,6 @@ const Weather = () => {
           <div
             className="w-[90%] lg:h-[300px] md:h-[450px] sm:h-[500px] h-[1000px] m-auto mb-10 rounded shadow-gray-500 shadow-lg overflow-hidden flex flex-wrap justify-center items-center gap-[4%]"
             style={{ backgroundColor: "#E6F0F3" }}
-            id={styles.tempContainer}
           >
             <div className="w-[250px] h-[80px] bg-white rounded flex shadow-gray-500 shadow-lg">
               <div className="w-[70%] h-[100%] font-medium">

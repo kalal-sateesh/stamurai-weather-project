@@ -415,5 +415,3 @@ const Table = () => {
 };
 
 export default Table;
-
-//ml-[40%] lg:mt-[150px] mt-[250px]
