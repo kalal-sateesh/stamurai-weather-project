@@ -1,11 +1,43 @@
+@media screen and (max-width: 650px) {
+  #table {
+    font-size: 8px;
+  }
+  #sortingIcon {
+    width: 10px;
+    height: 10px;
+  }
+  #filterIcon{
+    width: 40px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   #table {
-    font-size: 10px;
+    font-size: 6px;
+  }
+  #sortingIcon {
+    width: 8px;
+    height: 8px;
+  }
+  #filterIcon{
+    width: 35px;
   }
 }
 @media screen and (max-width: 400px) {
   #table {
-    font-size: 8px;
+    font-size: 5px;
+  }
+  #sortingIcon {
+    width: 7px;
+    height: 7px;
+  }
+  #filterIcon{
+    width: 30px;
   }
 }
 
+@media screen and (max-width:350px) {
+  #filterIcon{
+    width: 20px;
+  }
+}

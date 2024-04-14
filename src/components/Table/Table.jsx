@@ -186,7 +186,8 @@ const Table = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = document.documentElement.scrollTop;
+      const scrollTop =
+        document.documentElement.scrollTop || window.pageYOffset;
       const clientHeight = document.documentElement.clientHeight;
 
       if (
@@ -235,13 +236,14 @@ const Table = () => {
               <th className="lg:pl-5 lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
                 S.No
               </th>
-              <th className="lg:pl-5 flex justify-start md:gap-[5%] gap-[1%] lg:pr-5 pl-1 pr-1  pt-2 pb-2 text-start">
+              <th className="lg:pl-5 flex justify-start items-center md:gap-[5%] gap-[1%] lg:pr-5 pl-1 pr-1  pt-2 pb-2 text-start">
                 Cityname
                 <svg
-                  className="cursor-pointer w-[15px] lg:w-[25px] h-[15px] lg:h-[25px]"
+                  className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 320 512"
                   onClick={handleSortCityName}
+                  id={styles.sortingIcon}
                 >
                   <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
                 </svg>
@@ -249,6 +251,7 @@ const Table = () => {
                   onChange={(e) => handleSearch(e.target.value)}
                   className="w-[50px] h-auto bg-slate-400 cursor-pointer"
                   value={selectedCity}
+                  id={styles.filterIcon}
                 >
                   <option></option>
                   {cities.map((ele, index) => {
@@ -256,17 +259,18 @@ const Table = () => {
                   })}
                 </select>
               </th>
-              <th className="lg:pl-5 lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
-                <div className="flex lg:gap-[5%] gap-[1%]">
+              <th className="lg:pl-5  lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
+                <div className="flex lg:gap-[5%] gap-[1%] items-center">
                   Country
                   <div>
                     <svg
-                      className="cursor-pointer w-[15px] lg:w-[25px] h-[15px] lg:h-[25px]"
+                      className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
                       width="25px"
                       height="25px"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 320 512"
                       onClick={handleSortByCountryName}
+                      id={styles.sortingIcon}
                     >
                       <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
                     </svg>
@@ -276,6 +280,7 @@ const Table = () => {
                       onChange={(e) => handleFilterByCoutry(e.target.value)}
                       className="w-[50px] h-auto bg-slate-400 cursor-pointer"
                       value={selectedCountry}
+                      id={styles.filterIcon}
                     >
                       <option></option>
                       {cities.map((ele, index) => {
@@ -286,16 +291,17 @@ const Table = () => {
                 </div>
               </th>
               <th className="lg:pl-5 lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
-                <div className="flex lg:gap-[5%] gap-[1%]">
+                <div className="flex lg:gap-[5%] gap-[1%] items-center">
                   Timezone
                   <div>
                     <svg
-                      className="cursor-pointer  w-[15px] lg:w-[25px] h-[15px] lg:h-[25px]"
+                      className="cursor-pointer  w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
                       width="25px"
                       height="25px"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 320 512"
                       onClick={handleSortByTimezone}
+                      id={styles.sortingIcon}
                     >
                       <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
                     </svg>
@@ -305,6 +311,7 @@ const Table = () => {
                       onChange={(e) => handleFilterByTimezone(e.target.value)}
                       className="w-[50px] h-auto bg-slate-400 cursor-pointer"
                       value={selectedTimezone}
+                      id={styles.filterIcon}
                     >
                       <option></option>
                       {cities.map((ele, index) => {
@@ -316,16 +323,17 @@ const Table = () => {
               </th>
 
               <th className="lg:pl-5 lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
-                <div className="flex lg:gap-[5%] gap-[1%]">
+                <div className="flex lg:gap-[5%] gap-[1%] items-center">
                   Population
                   <div>
                     <svg
-                      className="cursor-pointer w-[15px] lg:w-[25px] h-[15px] lg:h-[25px]"
+                      className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
                       width="25px"
                       height="25px"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 320 512"
                       onClick={handleSortByPopulation}
+                      id={styles.sortingIcon}
                     >
                       <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
                     </svg>
@@ -335,6 +343,7 @@ const Table = () => {
                       onChange={(e) => handleFilterByPopulation(e.target.value)}
                       className="w-[50px] h-auto bg-slate-400 cursor-pointer"
                       value={selectedPopulation}
+                      id={styles.filterIcon}
                     >
                       <option></option>
                       {cities.map((ele, index) => {
@@ -390,7 +399,7 @@ const Table = () => {
         </table>
       )}
       {!isError && isLoading && (
-        <div className="lg:ml-[40%] m-[30%] lg:mt-[150px] mt-[250px]">
+        <div className="lg:ml-[40%] m-[30%] lg:mt-[150px] mt-[300px]">
           <button
             type="button"
             className="bg-indigo-500 pl-3 pr-3 p-3 rounded-xl flex text-white"
@@ -404,7 +413,10 @@ const Table = () => {
       )}
       {!isError && !isLoading && !more && <p>No more cities to load.</p>}
       {isError && !isLoading && (
-        <div className="w-[100%] h-[200px] flex justify-center items-center" style={{marginTop:"200px",fontFamily:"Poppins"}}>
+        <div
+          className="w-[100%] h-[200px] flex justify-center items-center"
+          style={{ marginTop: "200px", fontFamily: "Poppins" }}
+        >
           <span className="text-xl text-red-500 font-bold">
             Error while fetch the data please try again!!!
           </span>
