@@ -236,28 +236,34 @@ const Table = () => {
               <th className="lg:pl-5 lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
                 S.No
               </th>
-              <th className="lg:pl-5 flex justify-start items-center md:gap-[5%] gap-[1%] lg:pr-5 pl-1 pr-1  pt-2 pb-2 text-start">
-                Cityname
-                <svg
-                  className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                  onClick={handleSortCityName}
-                  id={styles.sortingIcon}
-                >
-                  <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
-                </svg>
-                <select
-                  onChange={(e) => handleSearch(e.target.value)}
-                  className="w-[50px] h-auto bg-slate-400 cursor-pointer"
-                  value={selectedCity}
-                  id={styles.filterIcon}
-                >
-                  <option></option>
-                  {cities.map((ele, index) => {
-                    return <option key={index}>{ele.name}</option>;
-                  })}
-                </select>
+              <th className="lg:pl-5  lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
+                <div className="flex lg:gap-[5%] gap-[1%] items-center">
+                  Cityname
+                  <div>
+                    <svg
+                      className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 320 512"
+                      onClick={handleSortCityName}
+                      id={styles.sortingIcon}
+                    >
+                      <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <select
+                      onChange={(e) => handleSearch(e.target.value)}
+                      className="w-[50px] h-auto bg-slate-400 cursor-pointer"
+                      value={selectedCity}
+                      id={styles.filterIcon}
+                    >
+                      <option></option>
+                      {cities.map((ele, index) => {
+                        return <option key={index}>{ele.name}</option>;
+                      })}
+                    </select>
+                  </div>
+                </div>
               </th>
               <th className="lg:pl-5  lg:pr-5 pl-1 pr-1 pt-2 pb-2 text-start">
                 <div className="flex lg:gap-[5%] gap-[1%] items-center">
@@ -265,8 +271,6 @@ const Table = () => {
                   <div>
                     <svg
                       className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
-                      width="25px"
-                      height="25px"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 320 512"
                       onClick={handleSortByCountryName}
@@ -296,8 +300,6 @@ const Table = () => {
                   <div>
                     <svg
                       className="cursor-pointer  w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
-                      width="25px"
-                      height="25px"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 320 512"
                       onClick={handleSortByTimezone}
@@ -328,8 +330,6 @@ const Table = () => {
                   <div>
                     <svg
                       className="cursor-pointer w-[10px] lg:w-[25px] h-[10px] lg:h-[25px]"
-                      width="25px"
-                      height="25px"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 320 512"
                       onClick={handleSortByPopulation}
